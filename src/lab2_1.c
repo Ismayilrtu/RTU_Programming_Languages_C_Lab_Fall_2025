@@ -11,18 +11,33 @@
       - Otherwise, call sum_to_n and print the result
 */
 
+// This function calculates the sum of integers from 1 to n
 int sum_to_n(int n) {
-    // TODO: implement sum with a for loop
-    return 0; // placeholder
+  int sum = 0;
+
+  for (int i = 1; i <= n; i++) {
+    sum += i;
+  }
+
+  return sum;
 }
 
 int main(void) {
-    int n;
+  int n;
 
-    printf("Enter a positive integer n: ");
-    scanf("%d", &n);
+  printf("Enter a positive integer n: ");
+  if (scanf("%d", &n) != 1) {
+    printf("Invalid input! Please enter a valid integer.\n");
+    return 1;
+  }
 
-    // TODO: validate input, call function, and print result
+  // If the user enters an invalid number, show an error message
+  if (n < 1) {
+    printf("Error: Please enter a positive integer greater than 0.\n");
+  } else {
+    int result = sum_to_n(n);
+    printf("The sum of integers from 1 to %d is: %d\n", n, result);
+  }
 
-    return 0;
+  return 0;
 }
