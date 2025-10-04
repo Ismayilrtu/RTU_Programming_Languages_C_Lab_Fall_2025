@@ -4,11 +4,11 @@
  *
  * Implement basic string handling functions.
  * Write your own versions of:
- *   - my_strlen (finds string length)
+ *   - my_strlen (finds the length of a string)
  *   - my_strcpy (copies string from src to dest)
  *
  * Rules:
- *   - Do not use <string.h> functions for strlen/strcpy.
+ *   - Do not use <string.h> functions like strlen/strcpy.
  *   - Use loops and manual pointer/array access.
  *
  * Example:
@@ -26,36 +26,38 @@ int my_strlen(const char *str);
 void my_strcpy(char *dest, const char *src);
 
 int main(void) {
-  // TODO: Test your functions here
   char test[] = "Programming in C";
   char copy[100];
 
+  // Calculate length of the string
   int len = my_strlen(test);
   printf("Length: %d\n", len);
 
+  // Copy string into another buffer
   my_strcpy(copy, test);
   printf("Copy: %s\n", copy);
 
   return 0;
 }
 
-// Implement functions below
+// Returns the length of a string
 int my_strlen(const char *str) {
   int count = 0;
-  // hərfləri say, ta ki '\0' çatana qədər
+  // count characters until null terminator
   while (str[count] != '\0') {
     count++;
   }
   return count;
 }
 
+// Copies string from src to dest
 void my_strcpy(char *dest, const char *src) {
   int i = 0;
-  // simvolları bir-bir kopyala
+  // copy characters one by one
   while (src[i] != '\0') {
     dest[i] = src[i];
     i++;
   }
-  // sonunda terminatoru qoymaq vacibdir
+  // make sure to terminate dest with '\0'
   dest[i] = '\0';
 }

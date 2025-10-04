@@ -26,23 +26,29 @@ void modify_value(int *x);
 
 int main(void) {
   int a = 3, b = 7;
-  printf("Before swap: a=%d, b=%d\n", a, b);
-  swap(&a, &b);
-  printf("After swap: a=%d, b=%d\n", a, b);
 
+  // Show values before swap
+  printf("Before swap: a = %d, b = %d\n", a, b);
+
+  // Swap the values using pointers
+  swap(&a, &b);
+  printf("After swap: a = %d, b = %d\n", a, b);
+
+  // Modify a by multiplying it by 2
   modify_value(&a);
-  printf("After modify_value: a=%d\n", a);
+  printf("After modify_value: a = %d\n", a);
 
   return 0;
 }
 
-// Implement functions below
+// Swap the values of two integers using pointers
 void swap(int *x, int *y) {
-  int tmp = *x;  // müvəqqəti saxla
-  *x = *y;       // birini o birinə kopyala
-  *y = tmp;      // saxladığımızı geri ver
+  int tmp = *x;  // temporarily store the value of x
+  *x = *y;       // assign y's value to x
+  *y = tmp;      // put original x value into y
 }
 
+// Multiply the value pointed to by x by 2
 void modify_value(int *x) {
-  *x = (*x) * 2;  // dəyəri ikiqatla
+  *x = (*x) * 2;  // double the value
 }

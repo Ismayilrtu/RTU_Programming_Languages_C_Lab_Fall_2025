@@ -2,14 +2,14 @@
  * Lab 3, Task 1
  * Student Name, Student ID
  *
- * Implement array algorithms:
+ * Perform operations on an array:
  *   - find minimum value
  *   - find maximum value
  *   - calculate sum
  *   - calculate average
  *
  * Rules:
- *   - Write separate functions for each operation.
+ *   - Write a separate function for each operation.
  *   - Work with int arrays.
  *   - Average should return a float.
  *
@@ -34,50 +34,48 @@ int main(void) {
   int arr[] = {10, 20, 5, 30, 15};
   int size = 5;
 
-  printf("Min: %d\n", array_min(arr, size));
-  printf("Max: %d\n", array_max(arr, size));
-  printf("Sum: %d\n", array_sum(arr, size));
-  printf("Avg: %.2f\n", array_avg(arr, size));
+  printf("Minimum element of the array: %d\n", array_min(arr, size));
+  printf("Maximum element of the array: %d\n", array_max(arr, size));
+  printf("Sum of the array elements: %d\n", array_sum(arr, size));
+  printf("Average of the array elements: %.2f\n", array_avg(arr, size));
 
   return 0;
 }
 
-// Implement functions below
-
-// minimum axtarış, sadəcə ilk elementi götürüb sonra müqayisə edirik
+// Find the minimum element in the array
 int array_min(int arr[], int size) {
-  int m = arr[0];  // assume first is min
+  int min = arr[0];  // assume first element is the minimum
   for (int i = 1; i < size; i++) {
-    if (arr[i] < m) {
-      m = arr[i];
+    if (arr[i] < min) {
+      min = arr[i];
     }
   }
-  return m;
+  return min;
 }
 
-// maximum axtarış, eyni qayda
+// Find the maximum element in the array
 int array_max(int arr[], int size) {
-  int m = arr[0];
+  int max = arr[0];  // assume first element is the maximum
   for (int i = 1; i < size; i++) {
-    if (arr[i] > m) {
-      m = arr[i];
+    if (arr[i] > max) {
+      max = arr[i];
     }
   }
-  return m;
+  return max;
 }
 
-// elementləri bir-bir toplayırıq
+// Calculate the sum of all elements
 int array_sum(int arr[], int size) {
-  int s = 0;
+  int sum = 0;
   for (int i = 0; i < size; i++) {
-    s = s + arr[i];  // toplama
+    sum += arr[i];  // add each element to sum
   }
-  return s;
+  return sum;
 }
 
-// orta = cəm / say
+// Calculate the average of elements
 float array_avg(int arr[], int size) {
-  int s = array_sum(arr, size);  // reuse sum
-  float avg = (float)s / size;
+  int sum = array_sum(arr, size);  // reuse the sum function
+  float avg = (float)sum / size;
   return avg;
 }
