@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 /*
-    ============================================
     Task:
     Write a function `int is_prime(int n)` that returns 1 if n is prime,
     0 otherwise.
@@ -10,6 +9,7 @@
       - Ask user for an integer n (>= 2)
       - If invalid, print an error
       - Otherwise, print all prime numbers up to n
+
     ============================================
 */
 
@@ -35,18 +35,21 @@ int main(void) {
 
   // Get user input
   printf("Your number: ");
-  scanf("%d", &n);
+  if (scanf("%d", &n) != 1) {
+    printf("Invalid input! Please enter an integer.\n");
+    return 1;
+  }
 
   // Validate input
   if (n < 2) {
-    printf(" Warning %d is less than 2, which is the smallest prime number.\n",
+    printf("Warning: %d is less than 2, which is the smallest prime number.\n",
            n);
     printf("Please run the program again with a valid number.\n");
     return 1;  // Exit with error
   }
 
   // Print primes header
-  printf("\n  Prime numbers from 2 up to %d:\n", n);
+  printf("\nPrime numbers from 2 up to %d:\n", n);
 
   // Loop through numbers and print primes
   for (int i = 2; i <= n; i++) {
@@ -55,7 +58,7 @@ int main(void) {
     }
   }
 
-  printf("\n\n All done! Thanks for using the Prime Number Finder.\n");
+  printf("\n\nAll done! Thanks for using the Prime Number Finder.\n");
 
   return 0;  // Successful exit
 }
